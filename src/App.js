@@ -67,11 +67,6 @@ const UserEditPage = () => {
   );
 };
 
-const MyNavigate = () => {
-  const { userId } = useParams();
-  return <Navigate to={`/users/${userId}/profile`} />;
-};
-
 const routes = [
   {
     path: "/",
@@ -85,10 +80,10 @@ const routes = [
       {
         path: ":userId",
         children: [
-          { path: "", element: <MyNavigate /> },
+          { path: "", element: <Navigate to="profile" /> },
           { path: "profile", element: <UserPage /> },
           { path: "edit", element: <UserEditPage /> },
-          { path: "*", element: <MyNavigate /> },
+          { path: "*", element: <Navigate to="profile" /> },
         ],
       },
       { path: "*", element: <Navigate to="/users" /> },
